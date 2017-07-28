@@ -9,6 +9,7 @@ import {
   ListView,
   Alert,
   Button,
+  Image,
   RefreshControl
 } from 'react-native';
 import MainPage from './components/mainpage';
@@ -72,25 +73,38 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{fontSize: 30}}>Welcome to EasyForm!</Text>
+        <Image
+          style={{height: 250, width: 250}}
+          source={require('./logoeasy.png')}
+        />
+        <Image
+          // style={{height: 110, width: 110}}
+          source={{uri: './logoeasy.png'}}
+        />
+        <Text>{"\n"}</Text>
         <TextInput
-          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
+          placeholderTextColor='#87849a'
+          style={{height: 40, width: 400, backgroundColor: '#353344', textAlign: 'center', margin: 10, color: 'white'}}
           placeholder="Full Name"
           onChangeText={(text) => this.setState({fullName: text})}
           value={this.state.fullName}
         />
         <TextInput
-          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.25, textAlign: 'center', margin: 10}}
+          placeholderTextColor='#87849a'
+          style={{height: 40, width: 400, backgroundColor: '#353344', textAlign: 'center', margin: 10, color: 'white'}}
           placeholder="Password"
           onChangeText={(text) => this.setState({password: text})}
           secureTextEntry={true}
           value={this.state.password}
         />
-        <TouchableOpacity onPress={ () => {this.login()} } style={[styles.button, styles.buttonGreen]}>
-          <Text style={styles.buttonLabel}>Login</Text>
+        <TouchableOpacity onPress={() => {this.login()} } style={[styles.button, styles.buttonGreen]}>
+          <Text style={styles.buttonLabel}>Log in</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.buttonBlue]} onPress={ () => {this.register()} }>
-          <Text style={styles.buttonLabel}>Register</Text>
+        <Text>{"\n"}</Text>
+        <Text>{"\n"}</Text>
+        <Text>{"\n"}</Text>
+        <TouchableOpacity onPress={() => {this.register()} }>
+          <Text style={styles.buttonLabel}>Don't have an account? Register Here.</Text>
         </TouchableOpacity>
       </View>
     );
@@ -117,26 +131,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#353344',
+    padding: 0,
+    margin: 0
   },
   button: {
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    borderRadius: 5
+    borderRadius: 0
   },
   buttonBlue: {
     backgroundColor: '#0074D9',
   },
   buttonGreen: {
-    backgroundColor: '#2ECC40'
+    width: 250,
+    justifyContent: 'center',
+    backgroundColor: '#302d41'
   },
   buttonLabel: {
     textAlign: 'center',
     fontSize: 16,
-    color: 'white'
+    color: '#87849a'
   }
 });

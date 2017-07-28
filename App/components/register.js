@@ -54,13 +54,18 @@ export default class Register extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>{"\n"}</Text>
+        <Text>{"\n"}</Text>
+        <Text>{"\n"}</Text>
         <TextInput
-          style={{marginTop: 90, height: 40, width: 400, borderColor: 'white', borderWidth: 0.5, textAlign: 'center', margin: 10}}
+          placeholderTextColor='#87849a'
+          style={{marginTop: 90, height: 40, width: 400, textAlign: 'center', margin: 10, color: 'white'}}
           placeholder="Full Name"
           onChangeText={(text) => this.setState({fullName: text})}
         />
         <TextInput
-          style={{height: 40, width: 400, borderColor: 'white', borderWidth: 0.25, textAlign: 'center', margin: 10}}
+          placeholderTextColor='#87849a'
+          style={{height: 40, width: 400, textAlign: 'center', margin: 10, color: 'white'}}
           placeholder="Password"
           onChangeText={(text) => this.setState({password: text})}
           secureTextEntry={true}
@@ -77,22 +82,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#353344',
   },
   button: {
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    borderRadius: 5
+    borderRadius: 0
   },
   buttonBlue: {
     backgroundColor: '#0074D9',
   },
   buttonGreen: {
-    backgroundColor: '#2ECC40'
+    width: 250,
+    justifyContent: 'center',
+    backgroundColor: '#302d41'
   },
   buttonLabel: {
     textAlign: 'center',

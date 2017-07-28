@@ -8,7 +8,6 @@ import {
   MKColor,
   mdl
 } from 'react-native-material-kit';
-import Mailer from 'react-native-mail';
 
 const inputStyles = StyleSheet.create({
   col: {
@@ -22,10 +21,9 @@ const inputStyles = StyleSheet.create({
     height: 28,  // have to do it on iOS
     marginTop: 32,
   },
-  textfieldWithFloatingLabel: {
-    height: 48,  // have to do it on iOS
-    marginTop: 10,
-  },
+  placeholder: {
+    color: 'white'
+  }
 });
 
 export default class Form extends React.Component {
@@ -127,7 +125,7 @@ export default class Form extends React.Component {
     let Name = MKTextField.textfield()
       .withDefaultValue(this.state.name)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({name: e.nativeEvent.text}))
       .build();
 
@@ -136,7 +134,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Location')
       .withDefaultValue(this.state.location)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({location: e.nativeEvent.text}))
       .build();
 
@@ -144,7 +142,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Service Hours')
       .withDefaultValue(this.state.hours)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({hours: e.nativeEvent.text}))
       .withKeyboardType('numeric')
       .build();
@@ -153,7 +151,7 @@ export default class Form extends React.Component {
       .withPlaceholder('Organization')
       .withDefaultValue(this.state.organization)
       .withStyle(inputStyles.textfield)
-      .withTextInputStyle({flex: 1})
+      .withTextInputStyle({flex: 1, color: '#87849a'})
       .withOnEndEditing((e) => this.setState({organization: e.nativeEvent.text}))
       .build();
 
@@ -184,6 +182,10 @@ export default class Form extends React.Component {
             },
             dateInput: {
               marginLeft: 36
+            },
+            dateText: {
+              fontFamily: 'KohinoorTelugu-Light',
+              color: '#87849a'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -204,7 +206,11 @@ export default class Form extends React.Component {
               marginLeft: 0
             },
             dateInput: {
-              marginLeft: 36
+              marginLeft: 36,
+            },
+            dateText: {
+              fontFamily: 'KohinoorTelugu-Light',
+              color: '#87849a'
             }
             // ... You can check the source to find the other keys.
           }}
@@ -238,7 +244,7 @@ export default class Form extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
   },
   button: {
     alignSelf: 'stretch',
@@ -249,15 +255,4 @@ const styles = StyleSheet.create({
     marginRight: 5,
     borderRadius: 5
   },
-  buttonBlue: {
-    backgroundColor: '#0074D9',
-  },
-  buttonGreen: {
-    backgroundColor: '#2ECC40'
-  },
-  buttonLabel: {
-    textAlign: 'center',
-    fontSize: 16,
-    color: 'white'
-  }
 });
